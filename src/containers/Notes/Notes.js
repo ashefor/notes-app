@@ -19,10 +19,10 @@ class Home extends Component {
         backgroundColor: 'black'
     }
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('https://my-json-server.typicode.com/ashefor/notes-app/posts')
             .then((response) => {
                 this.setState({
-                    allNotes: response.data.slice(0, 10),
+                    allNotes: response.data,
                     isLoaded: true,
                 });
             }).catch(error => {
