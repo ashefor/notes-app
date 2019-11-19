@@ -1,0 +1,11 @@
+.noteBody {
+    margin: 2rem;
+}
+textarea{
+    resize: none;
+    border: none;
+}
+
+textarea:focus{
+    outline: none;;
+}
