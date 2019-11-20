@@ -1,18 +1,9 @@
 .note-card{
-    border: 1px solid #ccc;
+    border: 1px solid rgba(204, 204, 204, 0.3);
     border-radius: unset;
+    cursor: pointer;
 }
 
-a:active{
-    background: red;
-}
-button{
-    width: 100%;
-    text-align: left;
-}
-button:focus{
-    background: #ccc;
-    outline: none !important;
-    box-shadow: none !important;
-    border: none;
+.active{
+    background: rgba(184, 179, 230, 0.5);
 }

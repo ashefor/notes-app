@@ -3,9 +3,17 @@
 }
 textarea{
     resize: none;
-    border: none;
+    border: 1px solid rgba(204, 204, 204, 0.15);
+    padding: 1rem;
+    height: 65vh;
 }
 
 textarea:focus{
     outline: none;;
 }
+
+/* @media all and (max-width: 767px){
+    .noteBody {
+        width: 100%;
+    }
+} */

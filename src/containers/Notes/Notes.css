@@ -1,3 +1,13 @@
+.app-title{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+}
+.add-note{
+    display: block;
+}
 .notecontainer{
     height: 100vh;
 }
@@ -16,5 +26,17 @@
     height: 100%;
     right: 0;
     top: 0;
-    background: #ccc;
+    background: rgba(204, 204, 204, 0.1);
+}
+@media all and (max-width: 767px){
+    .app-title{
+        display: block;
+    }
+    .add-note{
+        display: flex;
+        justify-content: space-between;
+    }
+    .add-note button{
+        width: 50%;
+    }
 }
