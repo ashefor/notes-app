@@ -106,7 +106,7 @@ class Home extends Component {
         const leftsection = document.querySelector('.notesTitleSection');
         const righSection = document.querySelector('.righSection')
         if (leftsection && this.state.width < 768) {
-            leftsection.classList.remove('animated', 'fadeInLeft', 'faster');
+            leftsection.classList.remove('d-block','animated', 'fadeInLeft', 'faster');
             leftsection.classList.add('d-none');
             righSection.classList.remove('d-none');
             righSection.classList.add('animated', 'fadeInLeft', 'faster');
@@ -124,6 +124,14 @@ class Home extends Component {
                 created: Date.now()
             }
         })
+        const leftsection = document.querySelector('.notesTitleSection');
+        const righSection = document.querySelector('.righSection')
+        if (leftsection && this.state.width < 768) {
+            leftsection.classList.remove('d-block','animated', 'fadeInLeft', 'faster');
+            leftsection.classList.add('d-none');
+            righSection.classList.remove('d-none');
+            righSection.classList.add('animated', 'fadeInLeft', 'faster');
+        }
     }
     callNewPostFromChild = (post) => {
         this.setState(prevState => {
