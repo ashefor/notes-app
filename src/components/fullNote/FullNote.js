@@ -66,14 +66,25 @@ class FullNote extends React.Component {
     }
     render() {
         const { postBody, createdAt } = this.state;
-        const { post, goBack } = this.props;
+        const { post, goBack, deleteNote } = this.props;
         if (!post) {
             return <div className="noteBody"> Please select a post</div>
         } else {
             return (
                 <div>
-                    <button onClick={goBack} className="btn btn-sm btn-outline-primary d-block d-md-none my-2 ml-2"><span>Notes</span></button>
                     <article className="noteBody">
+                        <div className="d-flex justify-content-between">
+                            <button
+                                onClick={goBack}
+                                className="btn btn-sm btn-outline-primary d-block d-md-none my-2 ml-2">
+                                <span>Notes</span>
+                            </button>
+                            <button
+                                onClick={deleteNote}
+                                className="btn btn-sm btn-danger d-block d-md my-2 ml-auto">
+                                <span>Delete</span>
+                            </button>
+                        </div>
                         <div>
                             <div className="text-center">
                                 <small>
