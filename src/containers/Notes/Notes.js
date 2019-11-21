@@ -117,6 +117,10 @@ class Home extends Component {
     }
 
     addNewNoteHandler = () => {
+        const nodeList = Array.from(document.querySelectorAll('.note-card'));
+        nodeList.forEach(node => {
+            node.classList.remove('active');
+        })
         this.setState({
             post: {
                 body: '',
