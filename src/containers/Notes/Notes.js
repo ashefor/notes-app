@@ -106,7 +106,7 @@ class Home extends Component {
         const leftsection = document.querySelector('.notesTitleSection');
         const righSection = document.querySelector('.righSection')
         if (leftsection && this.state.width < 768) {
-            leftsection.classList.remove('d-block','animated', 'fadeInLeft', 'faster');
+            leftsection.classList.remove('d-block', 'animated', 'fadeInLeft', 'faster');
             leftsection.classList.add('d-none');
             righSection.classList.remove('d-none');
             righSection.classList.add('animated', 'fadeInLeft', 'faster');
@@ -131,7 +131,7 @@ class Home extends Component {
         const leftsection = document.querySelector('.notesTitleSection');
         const righSection = document.querySelector('.righSection')
         if (leftsection && this.state.width < 768) {
-            leftsection.classList.remove('d-block','animated', 'fadeInLeft', 'faster');
+            leftsection.classList.remove('d-block', 'animated', 'fadeInLeft', 'faster');
             leftsection.classList.add('d-none');
             righSection.classList.remove('d-none');
             righSection.classList.add('animated', 'fadeInLeft', 'faster');
@@ -153,7 +153,26 @@ class Home extends Component {
             }
         })
     }
-
+    deleteNoteHandler = (noteId) => {
+        axios.delete('https://my-json-server.typicode.com/ashefor/notes-app/posts/' + noteId)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState(prevState => {
+                        const newNotesArray = prevState.allNotes.filter(note => note.id !== noteId)
+                        return {
+                            allNotes: newNotesArray,
+                            post: ''
+                        }
+                    })
+                }
+                if(this.state.width <768) {
+                    document.querySelector('.notesTitleSection').classList.remove('d-none');
+                document.querySelector('.notesTitleSection').classList.add('animated', 'fadeInLeft', 'faster');
+                document.querySelector('.righSection').classList.remove('d-block', 'animated', 'fadeInLeft', 'faster');
+                document.querySelector('.righSection').classList.add('d-none');
+                }
+            }).catch(error => alert(error.message))
+    }
     render() {
         const { allNotes, isLoaded, error, post, maxId } = this.state;
         let renderPost = null;
@@ -187,7 +206,8 @@ class Home extends Component {
                         <FullNote post={post}
                             onChildClick={this.callNewPostFromChild}
                             maxId={maxId}
-                            goBack={this.backButtonHandler} />
+                            goBack={this.backButtonHandler}
+                            deleteNote={() => this.deleteNoteHandler(post.id)} />
                     </section>
                 </>
             )
